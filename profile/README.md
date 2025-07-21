@@ -2,6 +2,24 @@
 
 A modern implementation of the Unix `whatis` command using Large Language Models (LLMs). This project provides both an LLM model configuration and a REST API service that mimics the behavior of the traditional `whatis` command.
 
+## Try it!
+```bash
+# Health check
+curl http://whatis.sh:2095/health
+
+# Get usage instructions
+curl http://whatis.sh:2095/
+
+# Query a command (headless style)
+curl http://whatis.sh:2095/ls
+curl http://whatis.sh:2095/grep?v=true
+
+# Query with JSON body
+curl -X POST http://whatis.sh:2095/ \
+  -H "Content-Type: application/json" \
+  -d '{"cmd_or_func": "awk", "verbose": true}'
+```
+
 ## Project Structure
 
 ```
@@ -65,18 +83,6 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```bash
 # Health check
 curl http://whatis.sh:2095/health
-
-# Get usage instructions
-curl http://whatis.sh:2095/
-
-# Query a command (headless style)
-curl http://whatis.sh:2095/ls
-curl http://whatis.sh:2095/grep?v=true
-
-# Query with JSON body
-curl -X POST http://whatis.sh:2095/ \
-  -H "Content-Type: application/json" \
-  -d '{"cmd_or_func": "awk", "verbose": true}'
 ```
 
 ## Components
