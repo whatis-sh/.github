@@ -94,7 +94,7 @@ curl -X POST http://whatis.sh:2095/ \
 ### API Service (`/api`)
 
 - **Purpose**: HTTP REST API that serves the LLM functionality
-- **Technology**: FastAPI with Python 3.11+
+- **Technology**: FastAPI with Python 3.13+
 - **Features**:
   - Multiple endpoint types (headless, JSON body, POST)
   - Health checks for monitoring
